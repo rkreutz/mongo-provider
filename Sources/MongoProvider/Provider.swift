@@ -49,7 +49,8 @@ extension MongoDriver: ConfigInitializable {
         }
         
         let maxConnectionsPerServer = mongo["maxConnectionsPerServer"]?.int ?? 100
+        let timeout = mongo["timeout"]?.double ?? 30.0
         
-        try self.init(url, maxConnectionsPerServer: maxConnectionsPerServer)
+        try self.init(url, maxConnectionsPerServer: maxConnectionsPerServer, timeout: timeout)
     }
 }
